@@ -64,7 +64,7 @@ router.delete("/notes/:id", (req, res) => {
     let allNotes = JSON.parse(note);
 
     // filter the array by keeping all ids that do not equal the target id
-    const newAllNotes = allNotes.filter((note) => note.id != targetId);
+    const newAllNotes = allNotes.filter((note) => note.id !== targetId);
     res.send(newAllNotes);
 
     // replace old db with new db with the targetted note deleted
