@@ -1,6 +1,5 @@
 const express = require("express");
 const fs = require("fs");
-const nodemon = require("nodemon");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 
