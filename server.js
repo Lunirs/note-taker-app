@@ -15,8 +15,14 @@ app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/index.html"))
 );
 
+// getting route for note page
 app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/notes.html"))
+);
+
+// getting route for the full note database
+app.get("/api/notes", (req, res) =>
+  res.sendFile(path.join(__dirname, "./db/db.json"))
 );
 
 app.listen(PORT, () =>
