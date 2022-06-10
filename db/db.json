@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "title": "Do LeetCode",
+    "text": "Spam leetcode til you drop!",
+    "id": "7b137a65-b57e-497c-b1b5-06b5b121453b"
+  },
+  {
+    "title": "Do More LeetCode",
+    "text": "I have a love hate relationship with leetcode",
+    "id": "cb1c1f2a-5d90-445d-9e44-a8b5b054cd6a"
+  },
+  {
+    "title": "Help me",
+    "text": "If you are reading this, I am currently trapped in a stranger's basement and this stranger is forcing me to grind leetcode 24/7.\n\nOr actually... don't... at least I'll ace my coding interview after I graduate from this bootcamp!",
+    "id": "376d661f-a502-4fdd-bf06-da74410712f8"
+  }
+]
