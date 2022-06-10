@@ -65,17 +65,29 @@ app.get("/api/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "./db/db.json"))
 );
 
+//get individual note by id and to display in read only
+app.get("/api/notes/:id", (req, res) => {
+  const index = req.params.id;
+
+  res.json(allNotes[index]);
+});
 // Delete
 
+// delete individual notes by targetting their specific id
 app.delete("/api/notes/:id", (req, res) => {
+  // defines the target's id parameter
   const targetId = req.params.id;
   console.log(targetId);
+  // read current db for all notes and parse it into an allNotes array
   fs.readFile("./db/db.json", "utf8", (err, note) => {
     if (err) throw err;
     let allNotes = JSON.parse(note);
 
+    // filter the array by keeping all ids that do not equal the target id
     const newAllNotes = allNotes.filter((note) => note.id != targetId);
     res.send(newAllNotes);
+
+    // replace old db with new db with the targetted note deleted
     fs.writeFile(
       "./db/db.json",
       JSON.stringify(newAllNotes, null, 2),
