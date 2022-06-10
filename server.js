@@ -1,5 +1,6 @@
 const express = require("express");
 const fs = require("fs");
+const nodemon = require("nodemon");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 
@@ -65,6 +66,25 @@ app.get("/api/notes", (req, res) =>
 );
 
 // Delete
+
+app.delete("/api/notes/:id", (req, res) => {
+  const targetId = req.params.id;
+  console.log(targetId);
+  fs.readFile("./db/db.json", "utf8", (err, note) => {
+    if (err) throw err;
+    let allNotes = JSON.parse(note);
+
+    const newAllNotes = allNotes.filter((note) => note.id != targetId);
+    res.send(newAllNotes);
+    fs.writeFile(
+      "./db/db.json",
+      JSON.stringify(newAllNotes, null, 2),
+      (err) => {
+        if (err) throw err;
+      }
+    );
+  });
+});
 
 app.listen(PORT, () =>
   console.log(`Application is ruinning on port http://localhost:${PORT}`)
